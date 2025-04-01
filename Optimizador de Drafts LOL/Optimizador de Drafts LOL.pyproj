@@ -21,7 +21,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Prueba.py" />
+    <Compile Include="GenerarNuevosDatasets.py" />
+    <Compile Include="GenerarMatchUps.py" />
+    <Compile Include="Merge_Data.py" />
     <Compile Include="main.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />

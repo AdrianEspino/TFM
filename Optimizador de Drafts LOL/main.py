@@ -1,17 +1,16 @@
 import pandas as pd
-import os
 
-# Ruta a la carpeta donde están los archivos
-ruta = "C:\\Users\\adrim\\OneDrive\\Documentos\\Ingenieria informática\\TFM\\OE Public Match Data"
+# Cargar el dataset unificado
+df = pd.read_csv("C:\\Users\\adrim\\OneDrive\\Documentos\\Ingenieria informática\\TFM\\dataset_unificado.csv", delimiter= ";", error_bad_lines=False)
 
-# Lista todos los archivos CSV en la carpeta
-archivos = [f for f in os.listdir(ruta) if f.endswith('.csv')]
+# Ver las primeras filas
+print(df.head())
 
-# Carga y combina los archivos
-dataframes = [pd.read_csv(os.path.join(ruta, file)) for file in archivos]
-df_combinado = pd.concat(dataframes, ignore_index=True)
+# Ver información general del dataset
+print(df.info())
 
-# Guarda el dataset unificado
-df_combinado.to_csv("C:\\Users\\adrim\\OneDrive\\Documentos\\Ingenieria informática\\TFM\\dataset_unificado.csv", index=False)
-
-print(f"Dataset combinado con {df_combinado.shape[0]} filas y {df_combinado.shape[1]} columnas.")
+# Ver valores únicos en cada columna (opcional)
+for col in df.columns:
+    print(f"Columna: {col}")
+    print(df[col].unique()[:10])  # Muestra solo los primeros 10 valores únicos
+    print("-" * 30)
